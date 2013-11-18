@@ -90,12 +90,17 @@
 - (void)addButtonWithTitle:(NSString *)title handler:(void(^)(void))hander
 {
     NSInteger buttonIndex = [self addButtonWithTitle:title];
-    GRKAlertDelegate *delegate = self.delegate;
-    [delegate setHandler:hander forIndex:buttonIndex];
+    
     if (buttonIndex == 0)
     {
         //Default the "cancel" button to the first button
         self.cancelButtonIndex = 0;
+    }
+    
+    if ([self.delegate isKindOfClass:GRKAlertDelegate.class])
+    {
+        GRKAlertDelegate *delegate = self.delegate;
+        [delegate setHandler:hander forIndex:buttonIndex];
     }
 }
 

@@ -16,11 +16,11 @@ UIAlertView yet?
 
 If you're using [CocoPods](http://cocopods.org) it's as simple as adding this to your `Podfile`:
 
-	pod 'GRKAlertBlocks', '~> 1.0'
+	pod 'GRKAlertBlocks', '~> 1.0.1'
 
 ### Documentation
 
-Use as you would any other UIAlertView, but instantiation is now a class level message,
+Use as you would normally use UIAlertView, but instantiation is now a class level message,
 and adding a button can now take a block to be executed when tapped.
 
     UIAlertView *alert = [UIAlertView alertWithTitle:@"Title" message:@"Message"];
@@ -31,6 +31,8 @@ and adding a button can now take a block to be executed when tapped.
         NSLog(@"Bar!");
     }];
     [alert show];
+
+**NOTE**: If you set your own delegate on the alert, no handler blocks will be called.
 
 Additional documentation is available in `GRKAlertBlocks.h`.
 

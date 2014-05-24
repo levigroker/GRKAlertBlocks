@@ -27,10 +27,10 @@
 - (IBAction)grokinAlertAction
 {
     UIAlertView *alert = [UIAlertView alertWithTitle:@"Title" message:@"Message"];
-    [alert addButtonWithTitle:@"Foo" handler:^{
+    [alert addButtonWithTitle:@"Foo" handler:^(UIAlertView *alert) {
         NSLog(@"Foo!");
     }];
-    [alert addButtonWithTitle:@"Bar" handler:^{
+    [alert addButtonWithTitle:@"Bar" handler:^(UIAlertView *alert) {
         NSLog(@"Bar!");
     }];
     [alert show];

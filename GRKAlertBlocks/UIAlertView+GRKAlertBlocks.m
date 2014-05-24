@@ -35,7 +35,7 @@
     return _blocksByIndex;
 }
 
-- (void)setHandler:(void(^)(void))handler forIndex:(NSInteger)index
+- (void)setHandler:(void(^)(UIAlertView *alert))handler forIndex:(NSInteger)index
 {
     if (handler)
     {
@@ -47,9 +47,9 @@
     }
 }
 
-- (void(^)(void))handlerForIndex:(NSInteger)index
+- (void(^)(UIAlertView *alert))handlerForIndex:(NSInteger)index
 {
-    void(^handler)(void) = NULL;
+    void(^handler)(UIAlertView *alert) = NULL;
     
     if (_blocksByIndex)
     {
@@ -63,10 +63,10 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    void(^handler)(void) = [self handlerForIndex:buttonIndex];
+    void(^handler)(UIAlertView *alert) = [self handlerForIndex:buttonIndex];
     if (handler)
     {
-        handler();
+        handler(alertView);
     }
 }
 
@@ -87,7 +87,7 @@
     return alert;
 }
 
-- (void)addButtonWithTitle:(NSString *)title handler:(void(^)(void))hander
+- (void)addButtonWithTitle:(NSString *)title handler:(void(^)(UIAlertView *alert))hander
 {
     NSInteger buttonIndex = [self addButtonWithTitle:title];
     

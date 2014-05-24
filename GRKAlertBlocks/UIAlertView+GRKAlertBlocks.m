@@ -87,7 +87,7 @@
     return alert;
 }
 
-- (void)addButtonWithTitle:(NSString *)title handler:(void(^)(void))hander
+- (void)addButtonWithTitle:(NSString *)title handler:(void(^)(void))handler
 {
     NSInteger buttonIndex = [self addButtonWithTitle:title];
     
@@ -100,7 +100,7 @@
     if ([self.delegate isKindOfClass:GRKAlertDelegate.class])
     {
         GRKAlertDelegate *delegate = self.delegate;
-        [delegate setHandler:hander forIndex:buttonIndex];
+        [delegate setHandler:handler forIndex:buttonIndex];
     }
 }
 

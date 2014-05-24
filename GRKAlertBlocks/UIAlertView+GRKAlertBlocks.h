@@ -32,6 +32,6 @@
  @param handler A block to be executed in the event the added button is used to dismiss the alert. This can be `nil` if no additional handling is needed.
  @note The first button added will be considered the "cancel" button. In the event the alert is canceled by the OS the handler block will be called. To prevent this behavior simply use the `cancelButtonIndex` property to set the index to -1 (the `UIAlert` default).
  */
-- (void)addButtonWithTitle:(NSString *)title handler:(void(^)(void))hander;
+- (void)addButtonWithTitle:(NSString *)title handler:(void(^)(void))handler;
 
 @end
